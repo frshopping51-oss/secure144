@@ -1,77 +1,177 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SECURE144 - Centre de logiciels</title>
+<meta name="description" content="SECURE144 : découvrez des logiciels gratuits et payants, en toute simplicité.">
+<title>SECURE144 | Logiciels & Solutions numériques</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f6fa;color:#172033}
-header{background:#101d35;color:white;padding:22px;text-align:center}
-header h1{margin:0;color:#36c6ff;font-size:30px}
-nav{background:#172b4d;padding:15px;text-align:center}
-nav a{color:white;text-decoration:none;margin:12px;font-size:14px}
-.hero{padding:65px 20px;text-align:center;background:#102442;color:white}
-.hero h2{font-size:34px}
-.hero p{color:#d5e2f5}
-.search{padding:14px;width:85%;max-width:450px;border:0;border-radius:8px;margin-top:15px}
-.button{display:inline-block;background:#00a9e8;color:white;padding:13px 22px;border-radius:7px;text-decoration:none;margin-top:15px}
-section{padding:35px 20px;text-align:center}
-.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:18px}
-.card{background:white;padding:25px;width:260px;border-radius:12px;box-shadow:0 3px 12px #0001}
-.card h3{color:#087db5}
-footer{background:#101d35;color:white;text-align:center;padding:25px}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#17243a}
+header{background:#101d35;color:white;padding:22px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.logo{font-size:27px;font-weight:bold;color:#28c5ff}
+header p{margin:5px 0;font-size:12px;color:#c5d5e8}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:white;text-decoration:none;font-size:14px}
+.hero{background:linear-gradient(120deg,#102442,#075b91);padding:65px 20px;text-align:center;color:white}
+.hero h1{font-size:36px;margin:0 0 15px}
+.hero p{color:#d7e8f7}
+.search{width:90%;max-width:550px;padding:16px;border:0;border-radius:8px;margin-top:20px;font-size:15px}
+.container{max-width:1150px;margin:auto;padding:35px 20px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+select,.filters input{padding:12px;border:1px solid #d6deea;border-radius:7px;background:white}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{background:white;padding:22px;border-radius:12px;box-shadow:0 3px 15px #152b4810}
+.card .symbol{font-size:34px}
+.card h3{margin:12px 0 7px;color:#12385c}
+.card p{font-size:14px;line-height:1.5;color:#65748a;min-height:42px}
+.tag{display:inline-block;padding:5px 9px;background:#e5f5ff;color:#0879ad;border-radius:20px;font-size:12px}
+.card a,.main-button{display:inline-block;background:#087fb9;color:white;padding:11px 15px;border-radius:7px;text-decoration:none;margin-top:12px;font-size:13px}
+.card a:hover,.main-button:hover{background:#075b91}
+.empty{padding:30px;text-align:center;color:#65748a;grid-column:1/-1}
+section h2{color:#102d4d}
+.info{background:#e8f3fa;padding:25px;border-radius:12px;line-height:1.7}
+footer{background:#101d35;color:white;text-align:center;padding:28px;font-size:13px}
+@media(max-width:600px){header{gap:15px}.hero h1{font-size:28px}nav{gap:12px}}
 </style>
 </head>
 <body>
+
 <header>
-<h1>SECURE144</h1>
+<div>
+<div class="logo">SECURE144</div>
 <p>Votre univers de logiciels numériques</p>
-</header>
+</div>
 <nav>
 <a href="#">Accueil</a>
-<a href="#logiciels">Logiciels</a>
+<a href="#catalogue">Logiciels</a>
 <a href="#apropos">À propos</a>
 <a href="#contact">Contact</a>
 </nav>
+</header>
+
 <div class="hero">
-<h2>Découvrez les meilleurs logiciels</h2>
-<p>Trouvez, explorez et téléchargez vos outils numériques.</p>
-<input class="search" type="search" placeholder="Rechercher un logiciel...">
-<br>
-<a class="button" href="#logiciels">Explorer les logiciels</a>
+<h1>Découvrez les meilleurs logiciels</h1>
+<p>Explorez les outils numériques adaptés à vos besoins.</p>
+<input id="search" class="search" type="search"
+placeholder="Rechercher un logiciel...">
 </div>
-<section id="logiciels">
-<h2>Notre catalogue</h2>
-<div class="cards">
-<div class="card">
-<h3>Productivité</h3>
-<p>Des outils pour travailler plus efficacement.</p>
+
+<main class="container" id="catalogue">
+<h2>Explorer notre catalogue</h2>
+<p>Découvrez une sélection de logiciels et accédez à leurs sites officiels.</p>
+
+<div class="filters">
+<select id="category">
+<option value="all">Toutes les catégories</option>
+<option value="Bureautique">Bureautique</option>
+<option value="Multimédia">Multimédia</option>
+<option value="Sécurité">Sécurité</option>
+<option value="Développement">Développement</option>
+<option value="Graphisme">Graphisme</option>
+</select>
+
+<select id="price">
+<option value="all">Tous les tarifs</option>
+<option value="Gratuit">Gratuit</option>
+<option value="Payant">Payant</option>
+<option value="Freemium">Freemium</option>
+</select>
 </div>
-<div class="card">
-<h3>Sécurité</h3>
-<p>Des solutions pour protéger vos appareils.</p>
-</div>
-<div class="card">
-<h3>Multimédia</h3>
-<p>Des logiciels pour créer et modifier vos contenus.</p>
-</div>
-<div class="card">
-<h3>Développement</h3>
-<p>Des outils pour les développeurs.</p>
-</div>
-</div>
-</section>
-<section id="apropos">
+
+<div id="results" class="cards"></div>
+</main>
+
+<section class="container" id="apropos">
+<div class="info">
 <h2>À propos de SECURE144</h2>
-<p>Une plateforme dédiée à la découverte et à la distribution de logiciels.</p>
+SECURE144 est une plateforme de découverte de logiciels.
+Notre objectif est de faciliter l'accès aux solutions numériques,
+gratuites et payantes, en privilégiant les sources officielles
+et les téléchargements fiables.
+</div>
 </section>
-<section id="contact">
+
+<section class="container" id="contact">
 <h2>Contact</h2>
-<p>Bienvenue sur SECURE144.</p>
+<p>Vous êtes développeur et souhaitez présenter votre logiciel sur SECURE144 ?</p>
+<p>Notre espace partenaires sera prochainement disponible.</p>
 </section>
+
 <footer>
 <p>© 2026 SECURE144 - Tous droits réservés.</p>
+<p>Plateforme indépendante de découverte de logiciels.</p>
 </footer>
+
+<script>
+const softwares = [
+{name:"LibreOffice",category:"Bureautique",price:"Gratuit",icon:"📄",description:"Suite bureautique gratuite pour créer vos documents.",url:"https://www.libreoffice.org/download/download/"},
+{name:"VLC Media Player",category:"Multimédia",price:"Gratuit",icon:"🎬",description:"Lecteur multimédia pour lire de nombreux formats.",url:"https://www.videolan.org/vlc/"},
+{name:"GIMP",category:"Graphisme",price:"Gratuit",icon:"🎨",description:"Logiciel de retouche et de création graphique.",url:"https://www.gimp.org/downloads/"},
+{name:"7-Zip",category:"Bureautique",price:"Gratuit",icon:"📦",description:"Outil de compression et de décompression de fichiers.",url:"https://www.7-zip.org/"},
+{name:"Firefox",category:"Sécurité",price:"Gratuit",icon:"🦊",description:"Navigateur web libre et personnalisable.",url:"https://www.mozilla.org/firefox/new/"},
+{name:"Visual Studio Code",category:"Développement",price:"Gratuit",icon:"💻",description:"Éditeur de code pour les développeurs.",url:"https://code.visualstudio.com/"},
+{name:"Audacity",category:"Multimédia",price:"Gratuit",icon:"🎧",description:"Enregistrez et modifiez vos fichiers audio.",url:"https://www.audacityteam.org/download/"},
+{name:"Blender",category:"Graphisme",price:"Gratuit",icon:"🧊",description:"Création 3D, animation et modélisation.",url:"https://www.blender.org/download/"},
+{name:"Microsoft 365",category:"Bureautique",price:"Payant",icon:"📊",description:"Suite professionnelle de productivité Microsoft.",url:"https://www.microsoft.com/microsoft-365"},
+{name:"Adobe Photoshop",category:"Graphisme",price:"Payant",icon:"🖼️",description:"Solution professionnelle de création graphique.",url:"https://www.adobe.com/products/photoshop.html"},
+{name:"Canva",category:"Graphisme",price:"Freemium",icon:"✨",description:"Créez facilement des visuels et présentations.",url:"https://www.canva.com/"}
+];
+
+const results=document.getElementById("results");
+const search=document.getElementById("search");
+const category=document.getElementById("category");
+const price=document.getElementById("price");
+
+function render(){
+const q=search.value.toLowerCase().trim();
+const filtered=softwares.filter(s=>
+(s.name.toLowerCase().includes(q)||s.description.toLowerCase().includes(q))&&
+(category.value==="all"||s.category===category.value)&&
+(price.value==="all"||s.price===price.value)
+);
+
+results.innerHTML="";
+
+if(filtered.length===0){
+results.innerHTML='<div class="empty">Aucun logiciel trouvé. Essayez une autre recherche.</div>';
+return;
+}
+
+filtered.forEach(s=>{
+const card=document.createElement("article");
+card.className="card";
+
+const icon=document.createElement("div");
+icon.className="symbol";
+icon.textContent=s.icon;
+
+const title=document.createElement("h3");
+title.textContent=s.name;
+
+const tag=document.createElement("span");
+tag.className="tag";
+tag.textContent=s.price+" • "+s.category;
+
+const desc=document.createElement("p");
+desc.textContent=s.description;
+
+const link=document.createElement("a");
+link.href=s.url;
+link.target="_blank";
+link.rel="noopener noreferrer";
+link.textContent="Visiter le site officiel ↗";
+
+card.append(icon,title,tag,desc,link);
+results.appendChild(card);
+});
+}
+
+search.addEventListener("input",render);
+category.addEventListener("change",render);
+price.addEventListener("change",render);
+render();
+</script>
 </body>
-  </html>
+</html>
